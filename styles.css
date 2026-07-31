@@ -447,6 +447,98 @@ body{
   color:var(--blue);
 }
 
+/* ======================= ТЕЛЕФОН И ПЛАНШЕТ =======================
+   Только screen: при печати ширина листа A4 (794px) тоже попадает
+   под max-width, а верстку для печати менять нельзя.                */
+@media screen and (max-width:830px){
+
+  body{ padding:12px 10px; gap:14px; }
+
+  .page{
+    width:100%;
+    min-height:0;
+    border-radius:14px;
+    box-shadow:0 4px 18px rgba(18,39,94,.14);
+  }
+
+  /* шапка: логотип и заголовок друг под другом */
+  .topbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    padding:16px 18px;
+  }
+  .topbar__right{ text-align:left; }
+  .topbar__title{ font-size:19px; line-height:1.2; }
+  .topbar__deco{ right:-70px; }
+
+  .content{ padding:18px 16px 0; }
+
+  .sec-head{ margin-bottom:12px; }
+  .sec-head--between{ flex-direction:column; align-items:flex-start; gap:5px; }
+  .sec-title{ font-size:16px; }
+
+  /* карточка участника */
+  .card--info{ padding:16px; min-height:0; margin-bottom:20px; }
+  .info-grid{ grid-template-columns:1fr 1fr; column-gap:14px; row-gap:16px; }
+  .info-grid .field:first-child{ grid-column:1 / -1; }
+  .result-box{ grid-column:1 / -1; grid-row:auto; }
+  .field__label{ font-size:9px; }
+  .field__value{ font-size:14px; min-height:26px; }
+  .star{ width:30px; height:30px; }
+
+  /* навыки в одну колонку */
+  .skills{ grid-template-columns:1fr; gap:10px; margin-bottom:20px; }
+  .skill{ padding:13px 14px; }
+  .skill__name{ font-size:13.5px; }
+  .skill__desc{ font-size:10px; }
+  .segs i{ height:13px; }
+  .skill__score{ font-size:12px; min-width:34px; }
+
+  .card--comment{ padding:16px; }
+  .card--comment p{ font-size:12.5px; line-height:1.75; }
+
+  .foot{
+    margin:auto 16px 0;
+    padding:12px 0 16px;
+    flex-direction:column;
+    gap:4px;
+    font-size:9.5px;
+  }
+
+  /* точка А / точка Б */
+  .ab{ grid-template-columns:1fr; gap:12px; margin-bottom:20px; }
+  .ab-card{ min-height:0; padding:18px 16px 20px; }
+  .ab-card__title{ font-size:17px; }
+  .ab-card__sub{ font-size:10px; }
+  .ab-list{ margin-top:14px; }
+  .ab-list li{ font-size:12.5px; padding-left:16px; }
+  .ab-list li + li{ margin-top:12px; }
+
+  /* маршрут — вертикальный список */
+  .card--road{ padding:16px; margin-bottom:20px; }
+  .road{ flex-direction:column; gap:14px; }
+  .road__line{ display:none; }
+  .road__step{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-align:left;
+    padding:0;
+  }
+  .dot{ width:46px; height:46px; min-width:46px; margin:0; font-size:13px; }
+  .road__cap{ margin-bottom:3px; }
+  .road__txt{ font-size:12px; }
+
+  /* таблица «что прокачаем» — по строке на пару */
+  .grow__head{ display:none; }
+  .grow__row{ grid-template-columns:1fr; gap:6px; padding:13px 15px; }
+  .grow__arrow{ display:none; }
+  .grow__now,
+  .grow__res{ font-size:12.5px; line-height:1.4; }
+  .grow__res::before{ content:'→ '; color:var(--orange); font-weight:800; }
+}
+
 /* ---------- состояние загрузки данных из amoCRM ---------- */
 body.is-loading [data-amo]{ opacity:.35; transition:opacity .15s; }
 
