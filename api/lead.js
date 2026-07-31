@@ -124,6 +124,11 @@ module.exports = async (req, res) => {
       token_var: TOKEN_VARS.find((n) => (process.env[n] || '').trim()) || null,
       token_length: token.length,
       amo_vars_visible: Object.keys(process.env).filter((k) => k.startsWith('AMO')).sort(),
+      // какой деплой реально обслуживает домен
+      vercel_env: process.env.VERCEL_ENV || null,
+      commit: (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7) || null,
+      branch: process.env.VERCEL_GIT_COMMIT_REF || null,
+      env_var_count: Object.keys(process.env).length,
     });
   }
 
