@@ -75,9 +75,23 @@ function pickField(entity, key) {
 /** Токен принимаем под любым из привычных имён. */
 const TOKEN_VARS = ['AMO_ACCESS_TOKEN', 'AMO_LONG_LIVED_TOKEN', 'AMO_TOKEN', 'AMOCRM_TOKEN'];
 
+/**
+ * Чистит значение из дашборда: кавычки, префикс «ИМЯ_ПЕРЕМЕННОЙ=»
+ * (частая ошибка при копировании строки целиком), «Bearer » и любые пробелы —
+ * в JWT их быть не может, а перенос строки при вставке добавляется легко.
+ */
+function cleanToken(raw) {
+  return String(raw || '')
+    .trim()
+    .replace(/^["']|["']$/g, '')
+    .replace(/^[A-Z0-9_]+\s*=\s*/, '')
+    .replace(/^Bearer\s+/i, '')
+    .replace(/\s+/g, '');
+}
+
 function getToken() {
   for (const name of TOKEN_VARS) {
-    const value = (process.env[name] || '').trim();
+    const value = cleanToken(process.env[name]);
     if (value) return value;
   }
   return '';
