@@ -41,8 +41,9 @@ function readValue(field) {
     .map((v) => {
       if (v == null) return '';
       if (typeof v.value === 'object' && v.value !== null) return v.value.name || '';
-      if (typeof v.value === 'number' && field.field_type === 'date') {
-        return new Date(v.value * 1000).toLocaleDateString('ru-RU');
+      // date / date_time / birthday приходят unix-таймштампом
+      if (/^(date|date_time|birthday)$/.test(field.field_type || '') && !isNaN(Number(v.value))) {
+        return new Date(Number(v.value) * 1000).toLocaleDateString('ru-RU');
       }
       return v.value == null ? '' : String(v.value);
     })

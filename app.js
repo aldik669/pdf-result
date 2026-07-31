@@ -26,9 +26,22 @@
     });
   }
 
+  function today() {
+    const d = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()}`;
+  }
+
   async function load() {
     const id = getLeadId();
-    if (!id) return;
+    const params = new URLSearchParams(location.search);
+    // Ручное переопределение: /41335541?topic=Создание игры на Scratch&mentor=Айгерим
+    const override = (key) => (params.get(key) || '').trim();
+
+    if (!id) {
+      ['name', 'age', 'topic', 'mentor', 'date'].forEach((k) => fill(k, override(k)));
+      return;
+    }
 
     document.body.classList.add('is-loading');
 
@@ -38,11 +51,13 @@
 
       if (!res.ok) throw new Error(data.message || `HTTP ${res.status}`);
 
-      fill('name', data.name);
-      fill('age', data.age);
-      fill('topic', data.topic);
-      fill('mentor', data.mentor);
-      fill('date', data.date);
+      // Приоритет: параметр ссылки → данные amoCRM → значение в разметке.
+      fill('name', override('name') || data.name);
+      fill('age', override('age') || data.age);
+      fill('topic', override('topic') || data.topic);
+      fill('mentor', override('mentor') || data.mentor);
+      // Даты в сделке может не быть — тогда ставим сегодняшнюю.
+      fill('date', override('date') || data.date || today());
 
       if (data.name) document.title = `KURSOR — лист результатов: ${data.name}`;
     } catch (e) {
