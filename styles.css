@@ -151,7 +151,6 @@ body{
   column-gap:18px;
   row-gap:22px;
 }
-.field--wide{ grid-column:2 / 4; }
 .field__label{
   font-size:8px;
   font-weight:700;
