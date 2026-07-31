@@ -1,0 +1,463 @@
+/* ===== KURSOR · лист результатов — точная вёрстка PDF (A4, 2 страницы) ===== */
+
+:root{
+  --navy:        #12275e;
+  --navy-dark:   #0d1d47;
+  --ink:         #14336f;
+  --orange:      #f26522;
+  --orange-soft: #fbb040;
+  --peach-bg:    #fff3e8;
+  --peach-brd:   #fbdcc0;
+  --blue:        #1f62d0;
+  --blue-bg:     #e9f0fd;
+  --blue-brd:    #c9dcf8;
+  --muted:       #8296bd;
+  --line:        #dfe7f4;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  font-family:'Montserrat', 'Segoe UI', Arial, sans-serif;
+  background:#e8edf5;
+  padding:28px 16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:26px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- лист A4 ---------- */
+.page{
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 10px 34px rgba(18,39,94,.16);
+}
+
+/* ---------- шапка ---------- */
+.topbar{
+  background:var(--navy);
+  padding:17px 32px 19px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  overflow:hidden;
+}
+.topbar__deco{
+  position:absolute;
+  width:210px; height:210px;
+  border-radius:50%;
+  background:rgba(74,124,214,.22);
+  right:96px; top:-58px;
+}
+.topbar__deco::after{
+  content:'';
+  position:absolute;
+  width:150px; height:150px;
+  border-radius:50%;
+  background:rgba(74,124,214,.20);
+  right:-96px; top:22px;
+}
+.brand, .topbar__right{ position:relative; z-index:1; }
+
+.brand__logo{
+  font-size:25px;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:.4px;
+  line-height:1;
+}
+.brand__logo span{ color:var(--orange); }
+.brand__sub{
+  margin-top:6px;
+  font-size:8px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#9db2da;
+}
+.topbar__right{ text-align:right; }
+.topbar__title{
+  font-size:21px;
+  font-weight:800;
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  line-height:1;
+}
+.topbar__sub{
+  margin-top:7px;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#f79a4d;
+}
+
+/* ---------- контент ---------- */
+.content{
+  flex:1;
+  padding:24px 32px 0;
+}
+
+.sec-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 12px;
+}
+.sec-head--between{ justify-content:space-between; }
+.sec-head__left{ display:flex; align-items:center; gap:10px; }
+.sec-num{
+  width:19px; height:19px;
+  border-radius:6px;
+  background:var(--orange);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:800;
+  color:var(--navy);
+}
+.sec-hint{
+  font-size:8.5px;
+  font-weight:600;
+  color:var(--muted);
+}
+
+/* ---------- карточки ---------- */
+.card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+}
+.card--info{ padding:22px 24px 26px; margin-bottom:26px; min-height:177px; }
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1.55fr;
+  column-gap:18px;
+  row-gap:22px;
+}
+.field--wide{ grid-column:2 / 4; }
+.field__label{
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#8ea2c6;
+  margin-bottom:6px;
+}
+.field__value{
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--ink);
+  padding-bottom:8px;
+  border-bottom:1px solid #e4eaf5;
+}
+
+.result-box{
+  grid-column:4;
+  grid-row:1;
+  background:var(--peach-bg);
+  border-radius:12px;
+  padding:13px 16px 14px;
+  align-self:start;
+}
+.result-box__label{
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:8px;
+}
+.stars{ display:flex; gap:5px; }
+.star{ width:25px; height:25px; }
+.star--full path{ fill:var(--orange); }
+
+/* ---------- навыки ---------- */
+.skills{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:26px;
+}
+.skill{
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:15px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.skill__top{ display:flex; align-items:flex-start; gap:9px; }
+.skill__icon{
+  width:26px; height:26px;
+  min-width:26px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.skill__icon svg{
+  width:14px; height:14px;
+  fill:none;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.skill__name{
+  font-size:11.5px;
+  font-weight:800;
+  color:var(--navy);
+  line-height:1.25;
+}
+.skill__desc{
+  font-size:8px;
+  font-weight:600;
+  margin-top:2px;
+}
+.skill__bar{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+}
+.segs{ display:flex; gap:4px; flex:1; }
+.segs i{
+  flex:1;
+  height:11px;
+  border-radius:3px;
+  display:block;
+  border:1px solid;
+}
+.skill__score{
+  font-size:10px;
+  font-weight:800;
+  min-width:28px;
+  text-align:right;
+}
+
+/* оранжевые карточки */
+.skill--orange .skill__icon{ background:#fdece2; }
+.skill--orange .skill__icon svg{ stroke:var(--orange); }
+.skill--orange .skill__desc{ color:#e4813f; }
+.skill--orange .segs i{ border-color:#f9cfb4; background:transparent; }
+.skill--orange .segs i.on{ background:var(--orange); border-color:var(--orange); }
+.skill--orange .skill__score{ color:var(--orange); }
+
+/* синие карточки */
+.skill--blue .skill__icon{ background:#e6effc; }
+.skill--blue .skill__icon svg{ stroke:var(--blue); }
+.skill--blue .skill__desc{ color:#5b83c9; }
+.skill--blue .segs i{ border-color:#bcd3f4; background:transparent; }
+.skill--blue .segs i.on{ background:var(--blue); border-color:var(--blue); }
+.skill--blue .skill__score{ color:var(--blue); }
+
+/* ---------- комментарий ---------- */
+.card--comment{ padding:21px 24px; }
+.card--comment p{
+  font-size:10.5px;
+  font-weight:600;
+  line-height:1.9;
+  color:var(--ink);
+}
+
+/* ---------- подвал ---------- */
+.foot{
+  margin:auto 32px 0;
+  padding:14px 0 20px;
+  border-top:1px solid #e4eaf5;
+  display:flex;
+  justify-content:space-between;
+  font-size:8.5px;
+  font-weight:600;
+  color:#93a6c8;
+}
+
+/* ======================= СТРАНИЦА 2 ======================= */
+
+.ab{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:22px;
+}
+.ab-card{
+  border-radius:16px;
+  padding:22px 24px 32px;
+  min-height:388px;
+}
+.ab-card--a{ background:var(--peach-bg); border:1px solid var(--peach-brd); }
+.ab-card--b{ background:var(--blue-bg);  border:1px solid var(--blue-brd); }
+
+.pill{
+  display:inline-block;
+  border-radius:999px;
+  padding:5px 13px;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#fff;
+}
+.pill--orange{ background:var(--orange); }
+.pill--blue{ background:var(--blue); }
+
+.ab-card__title{
+  margin-top:16px;
+  font-size:16px;
+  font-weight:800;
+  color:var(--navy);
+}
+.ab-card__sub{
+  margin-top:5px;
+  font-size:8.5px;
+  font-weight:600;
+  color:var(--muted);
+}
+.ab-list{ list-style:none; margin-top:18px; }
+.ab-list li{
+  position:relative;
+  padding-left:17px;
+  font-size:10px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.4;
+}
+.ab-list li + li{ margin-top:14px; }
+.ab-list li::before{
+  content:'';
+  position:absolute;
+  left:0; top:4px;
+  width:6px; height:6px;
+  border-radius:50%;
+}
+.ab-card--a .ab-list li::before{ background:var(--orange); }
+.ab-card--b .ab-list li::before{ background:var(--blue); }
+
+/* ---------- маршрут ---------- */
+.card--road{ padding:26px 20px 22px; margin-bottom:22px; }
+.road{
+  display:flex;
+  position:relative;
+}
+.road__line{
+  position:absolute;
+  left:10%; right:10%;
+  top:25px;
+  height:6px;
+  border-radius:3px;
+  background:#eef2f9;
+}
+.road__step{
+  flex:1;
+  text-align:center;
+  position:relative;
+  padding:0 6px;
+}
+.dot{
+  width:56px; height:56px;
+  border-radius:50%;
+  margin:0 auto 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  position:relative;
+  z-index:1;
+}
+.dot--1{ background:linear-gradient(180deg,#ef5a24 0 50%,#f26522 50% 100%); }
+.dot--2{ background:linear-gradient(180deg,#f9a33a 0 50%,#fbb45c 50% 100%); }
+.dot--3{ background:linear-gradient(180deg,#4d8fe0 0 50%,#3f83db 50% 100%); }
+.dot--4{ background:linear-gradient(180deg,#1f62d0 0 50%,#1b57bb 50% 100%); }
+.dot--5{ background:linear-gradient(180deg,#16305f 0 50%,#122850 50% 100%); }
+
+.road__cap{
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.road__txt{
+  font-size:9px;
+  font-weight:700;
+  color:var(--navy);
+  line-height:1.45;
+}
+
+/* ---------- таблица «что прокачаем» ---------- */
+.grow{
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+}
+.grow__head,
+.grow__row{
+  display:grid;
+  grid-template-columns:1fr 60px 1.15fr;
+  align-items:center;
+}
+.grow__head{
+  background:var(--navy);
+  padding:12px 22px;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#fff;
+}
+.grow__row{
+  padding:13px 22px;
+  border-top:1px solid #e6ecf7;
+}
+.grow__row:nth-child(odd){ background:#fff; }
+.grow__row:nth-child(even){ background:#eef4fd; }
+.grow__now{
+  font-size:10px;
+  font-weight:700;
+  color:var(--navy);
+}
+.grow__arrow{
+  text-align:center;
+  color:var(--orange);
+  font-size:13px;
+  font-weight:700;
+}
+.grow__res{
+  font-size:10px;
+  font-weight:700;
+  color:var(--blue);
+}
+
+/* ---------- печать ---------- */
+@page{ size:A4; margin:0; }
+@media print{
+  body{ background:#fff; padding:0; gap:0; display:block; }
+  .page{
+    box-shadow:none;
+    width:210mm;
+    min-height:297mm;
+    page-break-after:always;
+    break-after:page;
+  }
+  .page:last-child{ page-break-after:auto; break-after:auto; }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}

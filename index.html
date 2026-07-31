@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KURSOR — Лист результатов мастер-класса</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================ СТРАНИЦА 1 ============================ -->
+<section class="page">
+
+  <header class="topbar">
+    <div class="topbar__deco"></div>
+    <div class="brand">
+      <div class="brand__logo">KURS<span>OR</span></div>
+      <div class="brand__sub">школа программирования</div>
+    </div>
+    <div class="topbar__right">
+      <div class="topbar__title">Лист результатов</div>
+      <div class="topbar__sub">мастер-класс по программированию</div>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- 1. Участник -->
+    <div class="sec-head">
+      <span class="sec-num">1</span>
+      <h2 class="sec-title">Участник мастер-класса</h2>
+    </div>
+
+    <div class="card card--info">
+      <div class="info-grid">
+        <div class="field">
+          <div class="field__label">Имя ученика</div>
+          <div class="field__value">Алихан Сериков</div>
+        </div>
+        <div class="field">
+          <div class="field__label">Возраст</div>
+          <div class="field__value">10 лет</div>
+        </div>
+        <div class="field">
+          <div class="field__label">Дата</div>
+          <div class="field__value">30.07.2026</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-box__label">Итог мастер-класса</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" class="star star--full"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" class="star star--full"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" class="star star--full"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" class="star star--half">
+              <defs>
+                <linearGradient id="halfStar" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="50%" stop-color="#F26522"/>
+                  <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#halfStar)" stroke="#F26522" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            <svg viewBox="0 0 24 24" class="star star--empty"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="none" stroke="#F7B98C" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field__label">Тема мастер-класса</div>
+          <div class="field__value">Создание игры на Scratch</div>
+        </div>
+        <div class="field field--wide">
+          <div class="field__label">Наставник</div>
+          <div class="field__value">Айгерим Касымова</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Навыки -->
+    <div class="sec-head sec-head--between">
+      <div class="sec-head__left">
+        <span class="sec-num">2</span>
+        <h2 class="sec-title">Навыки</h2>
+      </div>
+      <div class="sec-hint">оценка наставника по итогам занятия</div>
+    </div>
+
+    <div class="skills">
+
+      <!-- Внимательность -->
+      <div class="skill skill--orange">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><path d="M1.5 12S5 5.5 12 5.5 22.5 12 22.5 12 19 18.5 12 18.5 1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3.2"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Внимательность</div>
+            <div class="skill__desc">замечает детали, не пропускает ошибки</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs" data-score="6">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">6/10</div>
+        </div>
+      </div>
+
+      <!-- Усидчивость -->
+      <div class="skill skill--blue">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><path d="M7 2.5h10M7 21.5h10M7.8 2.5v4.2c0 2.2 4.2 3.6 4.2 5.3s-4.2 3.1-4.2 5.3v4.2M16.2 2.5v4.2c0 2.2-4.2 3.6-4.2 5.3s4.2 3.1 4.2 5.3v4.2"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Усидчивость</div>
+            <div class="skill__desc">удерживает фокус на задаче</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">5/10</div>
+        </div>
+      </div>
+
+      <!-- Целеустремлённость -->
+      <div class="skill skill--orange">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Целеустремлённость</div>
+            <div class="skill__desc">доводит проект до результата</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">6/10</div>
+        </div>
+      </div>
+
+      <!-- Логическое мышление -->
+      <div class="skill skill--blue">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="5.5" r="2.6"/><circle cx="18" cy="5.5" r="2.6"/><circle cx="12" cy="19" r="2.6"/><path d="M6 8.1v3.2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8.1M12 13.3v3.1"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Логическое мышление</div>
+            <div class="skill__desc">выстраивает причинно-следственные связи</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">7/10</div>
+        </div>
+      </div>
+
+      <!-- Алгоритмическое мышление -->
+      <div class="skill skill--orange">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><path d="m8.5 7.5-5 4.5 5 4.5M15.5 7.5l5 4.5-5 4.5"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Алгоритмическое мышление</div>
+            <div class="skill__desc">делит задачу на шаги, видит структуру</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">5/10</div>
+        </div>
+      </div>
+
+      <!-- Креативность -->
+      <div class="skill skill--blue">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><path d="M9.5 18h5M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5.9 1.2.9 1.9v.3h5.4v-.3c0-.7.3-1.4.9-1.9A6 6 0 0 0 12 3Z"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Креативность</div>
+            <div class="skill__desc">придумывает своё, а не копирует</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">7/10</div>
+        </div>
+      </div>
+
+      <!-- Скорость обучения -->
+      <div class="skill skill--orange">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5c3.2 2.4 5 5.9 5 9.4 0 2.4-.9 4.6-2.4 6.3H9.4A9.3 9.3 0 0 1 7 11.9c0-3.5 1.8-7 5-9.4Z"/><circle cx="12" cy="10.5" r="2"/><path d="M9.4 18.2 8 21.5l4-1.7 4 1.7-1.4-3.3"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Скорость обучения</div>
+            <div class="skill__desc">быстро схватывает новое</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">6/10</div>
+        </div>
+      </div>
+
+      <!-- Стрессоустойчивость -->
+      <div class="skill skill--blue">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.8 4.5 6v6c0 4.4 3.1 8.2 7.5 9.2 4.4-1 7.5-4.8 7.5-9.2V6Z"/><path d="m8.8 11.8 2.3 2.3 4.1-4.1"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Стрессоустойчивость</div>
+            <div class="skill__desc">не сдаётся, когда что-то не работает</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">5/10</div>
+        </div>
+      </div>
+
+      <!-- Самостоятельность -->
+      <div class="skill skill--orange">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.8"/><path d="M4.8 20.5c0-3.6 3.2-6.2 7.2-6.2s7.2 2.6 7.2 6.2"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Самостоятельность</div>
+            <div class="skill__desc">работает без постоянной подсказки</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">5/10</div>
+        </div>
+      </div>
+
+      <!-- Работа в команде -->
+      <div class="skill skill--blue">
+        <div class="skill__top">
+          <span class="skill__icon">
+            <svg viewBox="0 0 24 24"><circle cx="8.5" cy="8" r="3.2"/><circle cx="16.8" cy="9.2" r="2.4"/><path d="M2.8 19.4c0-3.1 2.6-5.3 5.7-5.3s5.7 2.2 5.7 5.3M15.5 14.3c3 0 5.7 1.6 5.7 4.4"/></svg>
+          </span>
+          <div>
+            <div class="skill__name">Работа в команде</div>
+            <div class="skill__desc">слышит других, помогает, задаёт вопросы</div>
+          </div>
+        </div>
+        <div class="skill__bar">
+          <div class="segs">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="skill__score">6/10</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. Комментарий -->
+    <div class="sec-head">
+      <span class="sec-num">3</span>
+      <h2 class="sec-title">Комментарий наставника</h2>
+    </div>
+
+    <div class="card card--comment">
+      <p>На мастер-классе быстро включился в работу и самостоятельно собрал первый проект, доведя его до рабочего
+        состояния. Хорошо считывает логику задачи и предлагает свои идеи, но пока не хватает технической базы: часть
+        шагов выполнял по образцу, при ошибке ждал подсказки. При регулярных занятиях заметный прогресс по
+        внимательности и самостоятельности будет уже через 2–3 месяца.</p>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    <span>KURSOR · школа программирования</span>
+    <span>стр. 1 / 2 · результаты мастер-класса</span>
+  </footer>
+</section>
+
+
+<!-- ============================ СТРАНИЦА 2 ============================ -->
+<section class="page">
+
+  <header class="topbar">
+    <div class="topbar__deco"></div>
+    <div class="brand">
+      <div class="brand__logo">KURS<span>OR</span></div>
+      <div class="brand__sub">маршрут развития</div>
+    </div>
+    <div class="topbar__right">
+      <div class="topbar__title">Точка А&nbsp; →&nbsp; Точка Б</div>
+      <div class="topbar__sub">куда мы приведём ребёнка</div>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- 1. Точка А / Точка Б -->
+    <div class="sec-head">
+      <span class="sec-num">1</span>
+      <h2 class="sec-title">Где сейчас и куда идём</h2>
+    </div>
+
+    <div class="ab">
+      <div class="ab-card ab-card--a">
+        <span class="pill pill--orange">Точка А</span>
+        <h3 class="ab-card__title">Что есть сейчас</h3>
+        <div class="ab-card__sub">по итогам мастер-класса</div>
+        <ul class="ab-list">
+          <li>Быстро адаптируется: сразу включается в задачу</li>
+          <li>Хорошая логика, схватывает суть с первого раза</li>
+          <li>Высокая мотивация и интерес к программированию</li>
+          <li>Не хватает технической базы и знаний</li>
+          <li>Внимание рассеивается, нужен внешний контроль</li>
+          <li>Работает по образцу, своих решений пока мало</li>
+          <li>Теряется при ошибке, ждёт помощи взрослого</li>
+        </ul>
+      </div>
+
+      <div class="ab-card ab-card--b">
+        <span class="pill pill--blue">Точка Б</span>
+        <h3 class="ab-card__title">Что будет через 12 месяцев</h3>
+        <div class="ab-card__sub">результат обучения в Kursor</div>
+        <ul class="ab-list">
+          <li>Уверенная техническая база и знание языка</li>
+          <li>Пишет код сам и понимает, как он работает</li>
+          <li>Удерживает внимание на задаче 40–60 минут</li>
+          <li>Ищет ошибку сам, не бросает на середине</li>
+          <li>Придумывает и реализует собственные проекты</li>
+          <li>Портфолио проектов: из игрока — в создателя</li>
+          <li>Готов к олимпиадам, хакатонам и защите проекта</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. Маршрут -->
+    <div class="sec-head sec-head--between">
+      <div class="sec-head__left">
+        <span class="sec-num">2</span>
+        <h2 class="sec-title">Маршрут обучения</h2>
+      </div>
+      <div class="sec-hint">путь от точки А до точки Б</div>
+    </div>
+
+    <div class="card card--road">
+      <div class="road">
+        <div class="road__line"></div>
+        <div class="road__step">
+          <div class="dot dot--1">A</div>
+          <div class="road__cap">Старт</div>
+          <div class="road__txt">Мастер-класс: первый проект за 60 минут</div>
+        </div>
+        <div class="road__step">
+          <div class="dot dot--2">1</div>
+          <div class="road__cap">1–3 мес</div>
+          <div class="road__txt">База: логика, алгоритмы, первые игры и анимации</div>
+        </div>
+        <div class="road__step">
+          <div class="dot dot--3">2</div>
+          <div class="road__cap">4–6 мес</div>
+          <div class="road__txt">Самостоятельные проекты, работа с ошибками</div>
+        </div>
+        <div class="road__step">
+          <div class="dot dot--4">3</div>
+          <div class="road__cap">7–9 мес</div>
+          <div class="road__txt">Свой продукт: игра, сайт или бот от идеи до релиза</div>
+        </div>
+        <div class="road__step">
+          <div class="dot dot--5">Б</div>
+          <div class="road__cap">10–12 мес</div>
+          <div class="road__txt">Портфолио, защита проекта, участие в хакатоне</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Что прокачаем -->
+    <div class="sec-head">
+      <span class="sec-num">3</span>
+      <h2 class="sec-title">Что прокачаем по пути</h2>
+    </div>
+
+    <div class="grow">
+      <div class="grow__head">
+        <div>Сегодня</div>
+        <div></div>
+        <div>Результат обучения</div>
+      </div>
+      <div class="grow__row">
+        <div class="grow__now">Внимательность и усидчивость</div>
+        <div class="grow__arrow">→</div>
+        <div class="grow__res">Работает над задачей до конца без напоминаний</div>
+      </div>
+      <div class="grow__row">
+        <div class="grow__now">Логика и алгоритмы</div>
+        <div class="grow__arrow">→</div>
+        <div class="grow__res">Раскладывает сложную задачу на понятные шаги</div>
+      </div>
+      <div class="grow__row">
+        <div class="grow__now">Нехватка технических знаний</div>
+        <div class="grow__arrow">→</div>
+        <div class="grow__res">Владеет языком и инструментами на уровне практики</div>
+      </div>
+      <div class="grow__row">
+        <div class="grow__now">Реакция на ошибки</div>
+        <div class="grow__arrow">→</div>
+        <div class="grow__res">Воспринимает ошибку как часть работы, а не провал</div>
+      </div>
+      <div class="grow__row">
+        <div class="grow__now">Креативность</div>
+        <div class="grow__arrow">→</div>
+        <div class="grow__res">Создаёт собственные идеи и защищает их публично</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    <span>KURSOR · школа программирования</span>
+    <span>стр. 2 / 2 · маршрут развития</span>
+  </footer>
+</section>
+
+</body>
+</html>
