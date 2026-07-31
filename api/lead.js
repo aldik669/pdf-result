@@ -72,11 +72,32 @@ function pickField(entity, key) {
   return '';
 }
 
+/** Токен принимаем под любым из привычных имён. */
+const TOKEN_VARS = ['AMO_ACCESS_TOKEN', 'AMO_LONG_LIVED_TOKEN', 'AMO_TOKEN', 'AMOCRM_TOKEN'];
+
+function getToken() {
+  for (const name of TOKEN_VARS) {
+    const value = (process.env[name] || '').trim();
+    if (value) return value;
+  }
+  return '';
+}
+
+/** Базовый адрес: из AMO_BASE_URL, из AMO_SUBDOMAIN или дефолт аккаунта. */
+function getBaseUrl() {
+  const raw = (process.env.AMO_BASE_URL || '').trim();
+  if (raw) return (raw.startsWith('http') ? raw : `https://${raw}`).replace(/\/+$/, '');
+
+  const sub = (process.env.AMO_SUBDOMAIN || '').trim();
+  if (sub) return `https://${sub.replace(/\..*$/, '')}.amocrm.ru`;
+
+  return 'https://kursorschool.amocrm.ru';
+}
+
 async function amoGet(path) {
-  const base = (process.env.AMO_BASE_URL || '').replace(/\/+$/, '');
-  const res = await fetch(base + path, {
+  const res = await fetch(getBaseUrl() + path, {
     headers: {
-      Authorization: `Bearer ${process.env.AMO_ACCESS_TOKEN}`,
+      Authorization: `Bearer ${getToken()}`,
       'Content-Type': 'application/json',
     },
   });
@@ -94,15 +115,30 @@ async function amoGet(path) {
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
 
+  // Диагностика окружения: /api/lead?debug=1 — показывает имена, но не значения.
+  if (req.query && req.query.debug) {
+    const token = getToken();
+    return res.status(200).json({
+      base_url: getBaseUrl(),
+      token_found: Boolean(token),
+      token_var: TOKEN_VARS.find((n) => (process.env[n] || '').trim()) || null,
+      token_length: token.length,
+      amo_vars_visible: Object.keys(process.env).filter((k) => k.startsWith('AMO')).sort(),
+    });
+  }
+
   const id = String((req.query && req.query.id) || '').trim();
   if (!/^\d+$/.test(id)) {
     return res.status(400).json({ error: 'bad_id', message: 'Укажите числовой ID сделки: /api/lead?id=41335541' });
   }
 
-  if (!process.env.AMO_BASE_URL || !process.env.AMO_ACCESS_TOKEN) {
+  if (!getToken()) {
     return res.status(500).json({
       error: 'not_configured',
-      message: 'Не заданы переменные окружения AMO_BASE_URL и AMO_ACCESS_TOKEN',
+      message:
+        `Токен amoCRM не найден. Задайте в Vercel одну из переменных: ${TOKEN_VARS.join(', ')}. ` +
+        `Сейчас видны только: ${Object.keys(process.env).filter((k) => k.startsWith('AMO')).join(', ') || '— ни одной —'}. ` +
+        'После добавления переменных нужен Redeploy.',
     });
   }
 
