@@ -166,6 +166,7 @@ body{
   color:var(--ink);
   padding-bottom:8px;
   border-bottom:1px solid #e4eaf5;
+  min-height:24px;          /* пустое поле не «схлопывает» подчёркивание */
 }
 
 .result-box{

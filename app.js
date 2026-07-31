@@ -26,6 +26,22 @@
     });
   }
 
+  /** Поля, которые заполняются из CRM: на время загрузки очищаем, чтобы не мигало чужое имя. */
+  const LOADED_KEYS = ['name', 'age', 'date'];
+
+  function clear(keys) {
+    keys.forEach((key) => {
+      document.querySelectorAll(`[data-amo="${key}"]`).forEach((el) => {
+        el.textContent = '';
+      });
+    });
+  }
+
+  /** «данияла сериковa» → «Данияла Сериковa»: имя всегда с большой буквы. */
+  function capitalize(value) {
+    return String(value || '').replace(/(^|[\s\-–—])([a-zа-яё])/g, (_, sep, ch) => sep + ch.toUpperCase());
+  }
+
   function today() {
     const d = new Date();
     const pad = (n) => String(n).padStart(2, '0');
@@ -43,6 +59,8 @@
       return;
     }
 
+    // Пока идёт запрос — поля пустые, а не с демо-данными из разметки.
+    clear(LOADED_KEYS);
     document.body.classList.add('is-loading');
 
     try {
@@ -52,7 +70,7 @@
       if (!res.ok) throw new Error(data.message || `HTTP ${res.status}`);
 
       // Приоритет: параметр ссылки → данные amoCRM → значение в разметке.
-      fill('name', override('name') || data.name);
+      fill('name', capitalize(override('name') || data.name));
       fill('age', override('age') || data.age);
       fill('topic', override('topic') || data.topic);
       fill('mentor', override('mentor') || data.mentor);
