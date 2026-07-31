@@ -447,6 +447,9 @@ body{
   color:var(--blue);
 }
 
+/* ---------- состояние загрузки данных из amoCRM ---------- */
+body.is-loading [data-amo]{ opacity:.35; transition:opacity .15s; }
+
 /* ---------- печать ---------- */
 @page{ size:A4; margin:0; }
 @media print{
