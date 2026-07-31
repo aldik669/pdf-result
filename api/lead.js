@@ -129,6 +129,8 @@ module.exports = async (req, res) => {
       commit: (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7) || null,
       branch: process.env.VERCEL_GIT_COMMIT_REF || null,
       env_var_count: Object.keys(process.env).length,
+      project: process.env.VERCEL_PROJECT_PRODUCTION_URL || null,
+      deployment_url: process.env.VERCEL_URL || null,
     });
   }
 
